@@ -11,3 +11,7 @@ L.marker([-34.6037, -58.3816])
    .bindPopup("Ubicación inicial")
    .openPopup();
 
+   map.on('click', function(e) {
+   alert("Lat: " + e.latlng.lat + " Lng: " + e.latlng.lng);
+});
+
