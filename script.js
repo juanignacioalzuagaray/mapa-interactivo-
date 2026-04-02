@@ -1,6 +1,7 @@
 var map = L.map('map').setView([-34.6037, -58.3816], 13);
 
 
+
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
    attribution: 'OpenStreetMap'
 }).addTo(map);
@@ -9,20 +10,19 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 L.marker([-34.6037, -58.3816])
    .addTo(map)
    .bindPopup("Ubicación inicial")
-   .openPopup();
+   .openPopup()
+   
 
-   map.on('click', function(e) {
-   alert("Lat: " + e.latlng.lat + " Lng: " + e.latlng.lng);
-});
+   
 
-let puntos = [];
+ 
 
+ let puntos = [];
 map.on('click', function(e) {
-   puntos.push([e.latlng.lat, e.latlng.lng]);
 
+        puntos.push([e.latlng.lat, e.latlng.lng]);
 
-   if (puntos.length === 2) {
-       L.polyline(puntos, { color: 'blue' }).addTo(map);
+   if (puntos.length === 3) {
+       L.polygon(puntos, { color: 'blue' }).addTo(map);
    }
-});
-
+})   
